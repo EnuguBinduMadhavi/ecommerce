@@ -1,0 +1,45 @@
+#%RAML 1.0
+title: Electronic Commerce
+
+/submit:
+  post:
+    description: Submitting the order to the MySQL database
+    body:
+      application/json:
+        examples:
+          input: !include /submit.raml
+    responses:
+      200:
+        body:
+          application/json:
+            example:
+              message: "Order is posted succesfully"
+/update:
+  description: Updatting the order to MYSQL database
+  /{Order_ID}:
+    patch: 
+      body:
+        application/json:
+         examples:
+          input: !include /update.raml
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                message: " Order is UPDATED sucessfully"
+/delete:
+  description: delete the order from database
+  /{Order_ID}:
+    delete:
+      responses:
+        200:
+          body:
+            application/json:
+              example:
+                message:"Order is DELETED succesfully"
+                                       
+                          
+                                                               
+
+                                  
